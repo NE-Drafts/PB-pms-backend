@@ -1,0 +1,13 @@
+yarn add prisma --dev
+yarn prisma init
+
+yarn add typescript ts-node @types/node --dev
+
+npx tsc --init
+
+yarn add @prisma/client
+
+yarn add express nodemailer nodemon swagger-autogen morgan pg uuid bcrypt class-transformer class-validator dotenv jsonwebtoken
+
+
+yarn add -D @types/express @types/nodemailer @types/nodemon @types/morgan @types/uuid @types/bcrypt @types/dotenv @types/jsonwebtoken

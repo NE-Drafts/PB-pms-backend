@@ -1,0 +1,50 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec ts-node src/swagger/index.ts  --ignore src/swagger/doc/swagger.json",
+    "start": "ts-node src/app.ts",
+    "build": "tsc",
+    "serve": "npx ts-node src/swagger/index.ts",
+    "prisma:gen": "npx prisma generate --schema src/prisma/schema.prisma",
+    "prisma:migrate": "npx prisma migrate dev --schema=./src/prisma/schema.prisma --name=init",
+    "prisma:studio": "npx prisma studio --schema src/prisma/schema.prisma",
+    "prisma:all": "yarn prisma:migrate && yarn prisma:gen",
+    "prisma:seed": "ts-node src/seeders/seed.ts",
+    "docker:build": "docker build -t trex/ne-nodejs .",
+    "docker:run": "docker run -p 4002:4002 trex/ne-nodejs"
+  },
+  "repository": "https://github.com/NE-templates/restful_backend.git",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^6.8.0",
+    "bcrypt": "^6.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^7.0.3",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.0",
+    "swagger-autogen": "^2.23.7",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/dotenv": "^8.2.3",
+    "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.15.18",
+    "@types/nodemailer": "^6.4.17",
+    "@types/nodemon": "^3.1.1",
+    "@types/uuid": "^10.0.0",
+    "prisma": "^6.8.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
