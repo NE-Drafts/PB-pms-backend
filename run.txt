@@ -1,5 +1,4 @@
 yarn add prisma --dev
-yarn prisma init
 
 yarn add typescript ts-node @types/node --dev
 
