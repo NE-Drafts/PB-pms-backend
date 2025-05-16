@@ -1,0 +1,1 @@
+type VehicleType = "CAR" | "TRUCK" | "MOTORCYCLE" | "BUS";

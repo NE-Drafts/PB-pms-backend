@@ -6,10 +6,13 @@ import router from "./routes";
 import ServerResponse from "./helpers/serverResponse";
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "./swagger/doc/swagger.json";
+import { config } from "dotenv";
+
+config()
 
 const app = express();
 const server = http.createServer(app);
-const PORT = process.env.PORT ?? 5000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
