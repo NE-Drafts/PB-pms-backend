@@ -1,5 +1,5 @@
+import { Role } from "@prisma/client";
 import { IsEmail, IsNotEmpty, IsString, MinLength, MaxLength, Matches } from "class-validator";
-import { Role } from "../types/auth.types";
 
 export class LoginDTO {
     

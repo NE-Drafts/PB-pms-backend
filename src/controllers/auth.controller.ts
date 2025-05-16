@@ -31,11 +31,11 @@ const register = async (req: Request, res: Response) => {
       },
     });
 
-    ServerResponse.created(res, "User created successfully", {
+    return ServerResponse.created(res, "User created successfully", {
       user: newUser,
     });
   } catch (error) {
-    ServerResponse.error(res, "Register failed", error);
+    return ServerResponse.error(res, "Register failed", error);
   }
 };
 
