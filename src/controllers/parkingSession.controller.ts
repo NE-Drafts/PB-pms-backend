@@ -116,7 +116,7 @@ const getAll = async (req: Request, res: Response) => {
 
 const exitParkingSession = async (req: Request, res: Response) => {
     try {
-        const {plateNumber} = req.body
+        const {plateNumber} = req.params
         const vehicle = await prisma.vehicle.findUnique({
             where: {
                 plateNumber

@@ -10,6 +10,6 @@ parkingSessionRouter.post("/create", [checkLoggedIn, checkAdmin, validationMiddl
 parkingSessionRouter.get("/all", [checkLoggedIn, checkAdmin], parkingSessionController.getAll)
 parkingSessionRouter.get("/allByVehicle/:plateNumber", [checkLoggedIn], parkingSessionController.getVehicleParkingSessions)
 parkingSessionRouter.get("/getParkingSession/:id", [checkLoggedIn], parkingSessionController.getParkingSession)
-parkingSessionRouter.put("/exitParkingSession/:plateNumber", [checkLoggedIn, checkAdmin], parkingSessionController.exitParkingSession)
+parkingSessionRouter.put("/exit/:plateNumber", [checkLoggedIn, checkAdmin], parkingSessionController.exitParkingSession)
 
 export default parkingSessionRouter;

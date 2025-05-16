@@ -3,6 +3,7 @@ import authRouter from "./auth.route";
 import vehicleRouter from "./vehicle.route";
 import slotRouter from "./slot.route";
 import parkingSessionRouter from "./parkingSession.route";
+import paymentRouter from "./payment.route";
 
 const router = Router();
 
@@ -33,6 +34,15 @@ router.use("/slot", slotRouter
 router.use("/parkingSession", parkingSessionRouter
     /*
         #swagger.tags = ['Parking Session']
+        #swagger.security = [{
+                "bearerAuth": []
+        }] 
+    */
+)
+
+router.use("/payment", paymentRouter
+    /*
+        #swagger.tags = ['Payment']
         #swagger.security = [{
                 "bearerAuth": []
         }] 
