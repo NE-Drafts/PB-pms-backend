@@ -4,6 +4,7 @@ import vehicleRouter from "./vehicle.route";
 import slotRouter from "./slot.route";
 import parkingSessionRouter from "./parkingSession.route";
 import paymentRouter from "./payment.route";
+import userRouter from "./user.route";
 
 const router = Router();
 
@@ -48,5 +49,15 @@ router.use("/payment", paymentRouter
         }] 
     */
 )
+
+router.use("/user", userRouter
+    /*
+        #swagger.tags = ['Users']
+        #swagger.security = [{
+            "bearerAuth": []
+        }] 
+    */
+)
+
 
 export default router;
