@@ -17,7 +17,7 @@ router.use("/vehicle", vehicleRouter
     /*
         #swagger.tags = ['Vehicle']
         #swagger.security = [{
-                "bearerAuth": []
+            "bearerAuth": []
         }] 
     */
 )
@@ -26,8 +26,8 @@ router.use("/slot", slotRouter
     /*
         #swagger.tags = ['Parking Slot']
         #swagger.security = [{
-                "bearerAuth": []
-        }] 
+            "bearerAuth": []
+        }]
     */
 )
 
@@ -35,7 +35,7 @@ router.use("/parkingSession", parkingSessionRouter
     /*
         #swagger.tags = ['Parking Session']
         #swagger.security = [{
-                "bearerAuth": []
+            "bearerAuth": []
         }] 
     */
 )
@@ -44,7 +44,7 @@ router.use("/payment", paymentRouter
     /*
         #swagger.tags = ['Payment']
         #swagger.security = [{
-                "bearerAuth": []
+            "bearerAuth": []
         }] 
     */
 )

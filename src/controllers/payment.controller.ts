@@ -1,15 +1,32 @@
 import { Request, Response } from "express";
 import ServerResponse from "../helpers/serverResponse";
 import prisma from "../prisma/prisma-client";
+import { convertBigIntToString } from "../helpers/utils";
 
 const getAllPayments = async (req: Request, res: Response) => {
   try {
-    const payments = prisma.payment.findMany();
-    return ServerResponse.success(res, "All payments", { payments });
+    const payments = await prisma.payment.findMany({
+      include: {
+        session: {
+          include: {
+            vehicle: {
+              include: {
+                owner: true,
+              },
+            },
+          },
+        },
+      },
+    });    
+
+    const serializedData = convertBigIntToString(payments)
+
+    return ServerResponse.success(res, "All payments", { payments: serializedData });
   } catch (error) {
     return ServerResponse.error(res, "Internal Server error 500");
   }
 };
+
 const getVehiclePayments = async (req: Request, res: Response) => {
   try {
     const { plateNumber } = req.params;
@@ -56,9 +73,9 @@ const getPayment = async (req: Request, res: Response) => {
 };
 
 const paymentController = {
-    getAllPayments,
-    getVehiclePayments,
-    getPayment
-}
+  getAllPayments,
+  getVehiclePayments,
+  getPayment,
+};
 
 export default paymentController;

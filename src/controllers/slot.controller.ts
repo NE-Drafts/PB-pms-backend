@@ -70,7 +70,15 @@ const updateSlot = async (req: Request, res: Response) => {
 
 const getAllSlots = async (req: Request, res: Response) => {
   try {
-    const slots = await prisma.parkingSlot.findMany();
+    const slots = await prisma.parkingSlot.findMany({
+      include: {
+        vehicle: {
+          include: {
+            owner: true
+          }
+        },
+      }
+    });
     return ServerResponse.success(res, "Slots retrieved successfully", {
       slots,
     });
